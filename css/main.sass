@@ -1,0 +1,220 @@
+$dark: #222429
+$blue: #3481ef
+$red: #FF4E00
+$yellow: #f7df1e
+$grey: #979797
+$white: #f5f6f6
+
+*
+    font-family: 'Poppins',
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+body
+    background-color: $white
+
+input,
+button,
+a
+    position: relative
+    font-weight: 600
+    transition: all 300ms ease-in-out
+    text-decoration: none
+    color: currentcolor
+    background: $white
+    padding: 0.2rem
+    outline: none
+    border: none
+
+    &:hover
+        color: $red!important
+
+        &::before
+            width: calc( 100% + 1rem )
+
+        svg
+            fill: $red!important
+
+    &:active
+        color: darken($red,10 ) !important
+
+        svg
+            fill: darken($red,10 ) !important
+
+a
+    &::before
+        display: block
+        position: absolute
+        bottom: -0.2rem
+        content: ''
+        transform: translateX(-0.5rem)
+        right: 0
+        left: 0
+        width: 0
+        height: 3px
+        background: $red
+        transition: all 300ms ease-in-out
+
+input
+    background: white
+
+a.active
+    color: $red!important
+
+    &::before
+        display: block
+        position: absolute
+        bottom: -0.2rem
+        content: ''
+        transform: translateX(-0.5rem)
+        width: calc( 100% + 1rem )
+        height: 3px
+        background: $red
+
+.list
+    list-style: none
+    display: flex
+    justify-content: space-evenly
+    align-items: center
+
+header
+    margin: auto
+    width: 80%
+    padding: 1rem 2rem
+
+main
+    padding: 2rem min(8rem,10%)
+
+div.heading
+    margin: auto
+    width: min(500px, 100%)
+
+section.heading
+    padding: 2rem
+    text-align: center
+
+    h1
+        font-weight: 400
+        font-size: 3rem
+        margin-bottom: 1rem
+
+    p
+        color: $grey
+        margin: auto
+        width: min(50ch,80%)
+        margin-bottom: 1rem
+
+    .search-input
+        display: flex
+        justify-content: space-between
+        background: white
+        margin: auto
+        overflow: hidden
+        width: min(50ch,100%)
+
+        svg
+            flex: 1
+            margin: auto
+
+        input
+            flex: 4
+            padding: 0.8rem min(2rem,5%)
+
+            &:focus,
+            &:focus ~ svg
+                circle,
+                line
+                    stroke: $red !important
+                    color: $red !important
+
+.rounded
+    border-radius: 8px
+
+.rounded-sm
+    border-radius: 4px
+
+.vectors
+    display: flex
+    justify-content: space-evenly
+    margin: 1rem 0
+
+    @media  screen and ( max-width: 700px )
+        display: block
+
+.card
+    background: white
+    text-align: center
+    width: min(33.3%, 350px)
+    margin: 0.5rem
+    padding: 1rem 0.5rem
+
+    @media  screen and ( max-width: 700px )
+        width: 90%
+
+    .thumbnail
+        background: $grey
+        width: 95%
+        aspect-ratio: 1
+
+    .card-button
+        padding: 0.2rem 0.4rem
+        margin-top: auto
+        color: $blue
+        font-weight: 600
+        background: transparent
+        // border: 1px solid $grey
+
+section.pagination
+    display: flex
+    flex-direction: row
+    text-align: center
+    margin: auto
+    width: 100%
+    position: absolute
+    padding: 1rem min(4rem,10%)
+    right: 0
+    left: 0
+    bottom: 0
+
+    @media  screen and ( max-width: 700px )
+        margin: auto
+        align-items: center
+        flex-direction: column
+        position: relative
+
+    section
+        line-height: 3rem
+        margin: 0 1rem
+        width: 33.3%
+
+        @media  screen and ( max-width: 700px )
+            width: 100%
+
+    .buttons button
+        display: flex
+        justify-content: space-between
+        align-items: center
+        background: white
+        font-size: 1rem
+        margin: auto
+        width: min( 200px,100%)
+        padding: 0rem 2rem
+        font-weight: 600
+        vertical-align: middle
+
+        svg
+            width: 2rem
+
+    img.discover-image
+        padding: 2px
+        border-radius: 16px
+        width: 48px
+        height: 48px
+        background: white
+        border: 1px solid $grey
+        display: inline
+
+    @for $i from 0 through 3
+        img.discover-image:nth-child(#{$i+1})
+            transform: translateX(-30px * $i)
